@@ -26,3 +26,8 @@ Task : Online Code Compliation and IDE development framework
     2. Deciding on the server and client side framework - Mostly ReactJS and Django
     3. Deciding on the user requirement's priority 
     4. Deciding on the initial setup.
+
+
+# 22-03-2019 Task Done - Creating a personal web page.
+
+# 22-03-2019 Task Done - StoryBoard : https://trello.com/b/8nfRKvdo/mini-project-webapplicationdev
