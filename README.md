@@ -36,7 +36,7 @@ Task : Online Code Compliation and IDE development framework
         
 # 29-03-2019 Task Done - StoryBoard updation with Functional and Non-functional Requirements
  
-                         TODO - Read Chapter 7 of the book for the below mentioned task
+                         TODO - Read Chapter 7 of the book asad-jibran for the below mentioned task
             
 # TODO - Design survey form using the contents and style references from book 
 
