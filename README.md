@@ -30,4 +30,18 @@ Task : Online Code Compliation and IDE development framework
 
 # 22-03-2019 Task Done - Creating a personal web page.
 
-# 22-03-2019 Task Done - StoryBoard : https://trello.com/b/8nfRKvdo/mini-project-webapplicationdev
+# 22-03-2019 Task Done - StoryBoard : 
+
+        https://trello.com/b/8nfRKvdo/mini-project-webapplicationdev
+        
+# 29-03-2019 Task Done - StoryBoard updation with Functional and Non-functional Requirements
+ 
+                         TODO - Read Chapter 7 of the book asad-jibran for the below mentioned task
+            
+# TODO - Design survey form using the contents and style references from book 
+
+@TODO
+Do hand tracing of UI
+Do DB design
+
+                         
