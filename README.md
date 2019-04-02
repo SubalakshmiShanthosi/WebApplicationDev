@@ -40,8 +40,7 @@ Task : Online Code Compliation and IDE development framework
             
 # TODO - Design survey form using the contents and style references from book 
 
-@TODO
-Do hand tracing of UI
-Do DB design
+# 02-04-2019 Task Done - UI Design of Form Interface
 
+# 02-04-2019 TODO - DB Design
                          
