@@ -47,5 +47,8 @@ https://balsamiq.cloud/sf1jy0q/prj28md
 # 02-04-2019 TODO - DB Design - Done 
 https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95udSJfpyBfBhMyWoXv62uEECEsfibZ?x=20517&y=20637&zoom=2.931
 
-# 12-04-2019 - Creating CustomForm and landing pages : TODO 
+# 12-04-2019 - Creating CustomForm and landing pages : Done added SurveyForm Database Design with Two Tables
+             
+             CustomFormDetails
+             EditFormLayout
                          
