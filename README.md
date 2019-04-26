@@ -15,7 +15,7 @@ PCP1217-WebApplicationDevelopment
 
 4. Using custom preview for HTML5 content presentation and CSS3 styling : Using wix
 
-# WebApplicationDev - Mini Project 
+# WebApplicationDev - Mini Project
 
 Task : Online Code Compliation and IDE development framework
 
@@ -24,36 +24,44 @@ Task : Online Code Compliation and IDE development framework
 
     1. Collecting user requirements
     2. Deciding on the server and client side framework - Mostly ReactJS and Django
-    3. Deciding on the user requirement's priority 
+    3. Deciding on the user requirement's priority
     4. Deciding on the initial setup.
 
 
 # 22-03-2019 Task Done - Creating a personal web page.
 
-# 22-03-2019 Task Done - StoryBoard : 
+# 22-03-2019 Task Done - StoryBoard :
 
         https://trello.com/b/8nfRKvdo/mini-project-webapplicationdev
-        
+
 # 29-03-2019 Task Done - StoryBoard updation with Functional and Non-functional Requirements
- 
+
                          TODO - Read Chapter 7 of the book asad-jibran for the below mentioned task
-            
-# TODO - Design survey form using the contents and style references from book 
+
+# TODO - Design survey form using the contents and style references from book
 
 # 02-04-2019 Task Done - UI Design of Form Interface
 
 https://balsamiq.cloud/sf1jy0q/prj28md
 
-# 02-04-2019 TODO - DB Design - Done 
+# 02-04-2019 TODO - DB Design - Done
 https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95udSJfpyBfBhMyWoXv62uEECEsfibZ?x=20517&y=20637&zoom=2.931
 
 # 12-04-2019 - Creating CustomForm and landing pages : Done added SurveyForm Database Design with Two Tables
-             
+
              CustomFormDetails
              EditFormLayout
 
 # 16-04-2019 - Creating the rendering pages
 
 # 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON
-               
-                         
+
+
+# TODO
+
+# Write a python code how to populate table with objects - Refer tango with django
+
+# TODO : Customisation
+
+1. Custom Validation of Form
+2. Form with a nice UI for pick list a option from limited dropdown fields
