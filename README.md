@@ -54,12 +54,13 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 
 # 16-04-2019 - Creating the rendering pages
 
-# 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON
+# 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON - DONE 
 
 
-# TODO
+# TODO - 26-04-2019 - Enhancing the view of forms.
 
-# Write a python code how to populate table with objects - Refer tango with django
+
+# Write a python code how to populate table with objects - Refer tango with django 
 
 # TODO : Customisation
 
