@@ -2,7 +2,7 @@ import json
 from django import forms
 from django.shortcuts import render
 from django.views.generic import FormView
-
+from main.models import FormSchema
 
 # Create your views here.
 
@@ -10,8 +10,11 @@ class CustomFormView(FormView):
     template_name="custom_form.html"
 
     def get_form(self):
-        form_structure_json="""{"name":"string","age":"number","city":"string","country":"string","time_lived_in_current_city":"string"}"""
-        form_structure=json.load(form_structure_json.read())
+
+        # Form structure is predefined with formSchemaIns.schema with the below given json and have done formSchemaIns.save() to load the DB schema
+        form_structure = FormSchema.objects.get(pk=1).schema
+        #form_structure_json="""{"name":"string","age":"number","city":"string","country":"string","time_lived_in_current_city":"string"}"""
+        #form_structure=json.loads(form_structure_json)
         custom_form=forms.Form(**self.get_form_kwargs())
         for key,value in form_structure.items():
             field_class=self.get_field_class_from_type(value)
