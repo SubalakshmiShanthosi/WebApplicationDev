@@ -53,4 +53,7 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
              EditFormLayout
 
 # 16-04-2019 - Creating the rendering pages
+
+# 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON
+               
                          
