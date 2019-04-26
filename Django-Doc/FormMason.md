@@ -73,3 +73,20 @@ This is to preserve the order of insertion of field while writing forms.py
 
 # Adding an extra field to a SampleForm instance
 ![Adding New Field](includingFieldsForm.png)
+
+# Generating dynamic forms
+
+Using JSON type description to populate model
+
+
+Form JSON for democratic information gathering for a person :
+
+```json
+{
+ "name": "string",
+ "age": "number",
+ "city": "string",
+ "country": "string",
+ "time_lived_in_current_city": "string"
+}
+```
