@@ -10,6 +10,13 @@
               > cd formmason
               > python manage.py startapp main
 
+              __Note__:
+
+                    Add the main as
+                    # Register your custom app here
+                    'main',
+                    in INSTALLED_APPS in settings.py
+
 2. Creating Python Virtual Environment:
 
       Command -
@@ -39,3 +46,30 @@
 
       > python manage.py shell
       > from main.forms import SampleForm
+      > form=SampleForm()
+      > form.fields
+      > OrderedDict([('name', <django.forms.fields.CharField at 0x7f3d1d019e10>),
+             ('age', <django.forms.fields.IntegerField at 0x7f3d1d01f6d8>),
+             ('address', <django.forms.fields.CharField at 0x7f3d1d01f470>),
+             ('gender', <django.forms.fields.ChoiceField at 0x7f3d1d01f208>)])
+
+
+
+# Use of Ordered Dict Type in Django
+
+Unlike the traditional Dictonary - the fields of Form are of type
+__Ordered Dictionary__
+
+This is to preserve the order of insertion of field while writing forms.py
+
+
+# Form Learning -
+
+1. Fields attribute mapping to appropriate type of Field classes.
+2. Fields attributes are not accessible by Form class object.
+3. Addition to field Dictonary on object creation.
+4. Addition of new field not possible directly in class.
+
+
+# Adding an extra field to a SampleForm instance
+![Adding New Field](includingFieldsForm.png)
