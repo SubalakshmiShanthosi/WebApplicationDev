@@ -207,3 +207,49 @@ class FormSchema(models.Model):
 ![Form Schema Definition](formSchemaDefn.png)
 
 # Write a python code how to populate table with objects - refer tango with django
+
+# Creating a better user interface
+
+1. In settings.py add the location of templates folder
+
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+           os.path.join(BASE_DIR,'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+# In which DIRS is specified with the templates directory.
+```
+
+2. In main/templates/base.html : Add the Home url and a block Handlebar variable
+
+3. In main/templates/home.html :
+   Add a link to this form_responses
+
+     Extends base.html
+
+    Iterating forms in object_list
+
+    Linking to custom_form and form_responses in a unordered list.
+
+4. In custom_form.html :
+    Change the form body as Handlebar variable customisable.
+
+```html
+{{ form.as_p }}
+<!-- In Form body -->
+```
+
+5. 
