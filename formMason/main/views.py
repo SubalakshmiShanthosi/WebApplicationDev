@@ -2,9 +2,15 @@ import json
 from django import forms
 from django.shortcuts import render
 from django.views.generic import FormView
+from django.views.generic import ListView
 from main.models import FormSchema
 
 # Create your views here.
+
+class HomePageView(ListView):
+    model=FormSchema
+    template_name="home.html"
+
 
 class CustomFormView(FormView):
     template_name="custom_form.html"

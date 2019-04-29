@@ -252,4 +252,12 @@ TEMPLATES = [
 <!-- In Form body -->
 ```
 
-5. 
+5. Changes in views.py -
+
+
+```python
+from django.views.generic import ListView
+class HomePageView(ListView):
+    model=FormSchema
+    template_name="home.html"
+```

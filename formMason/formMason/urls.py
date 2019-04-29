@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from main.views import CustomFormView
+from main.views import HomePageView
 
 urlpatterns = [
+    url(r'^$',HomePageView.as_view(),name='home'),
     url(r'^$', CustomFormView.as_view(), name='custom-form'),
     path('admin/', admin.site.urls),
 ]
