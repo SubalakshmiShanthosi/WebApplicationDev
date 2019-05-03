@@ -261,3 +261,38 @@ class HomePageView(ListView):
     model=FormSchema
     template_name="home.html"
 ```
+
+
+
+# Error on rendering
+
+![Error](/home/subalakshmi/WebApplicationDev/Django-Doc/NoReverseMatch.png)
+
+
+Solution : Change in url
+
+
+```python
+urlpatterns = [
+    url(r'^$', HomePageView.as_view() , name='home' ),
+    url(r'^form/(?P<form_pk>\d+)/$', CustomFormView.as_view(),
+name='custom-form'),
+    path(r'^admin/$', admin.site.urls),
+    #path('main/', include('main.urls', namespace="main")),
+]
+   #Change with P as form_pk
+```
+
+
+
+# Saving Responses Migration :
+
+
+# Adding in Models
+
+```python
+class FormResponse(models.Model):
+    form=models.ForeignKey(FormSchema,on_delete=models.PROTECT)
+    response=JSONField()
+
+```

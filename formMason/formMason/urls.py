@@ -18,9 +18,14 @@ from django.urls import path
 from django.conf.urls import url
 from main.views import CustomFormView
 from main.views import HomePageView
+from main.views import FormResponsesListView
+from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'^$',HomePageView.as_view(),name='home'),
-    url(r'^$', CustomFormView.as_view(), name='custom-form'),
-    path('admin/', admin.site.urls),
+
+    url(r'^$', HomePageView.as_view() , name='home' ),
+    url(r'^form/(?P<form_pk>\d+)/$', CustomFormView.as_view(),name='custom-form'),
+    path(r'^admin/$', admin.site.urls),
+    #path('main/', include('main.urls', namespace="main")),
+    url(r'^form/(?P<form_pk>\d+)/responses/$', FormResponsesListView.as_view(), name='form-responses'),
 ]

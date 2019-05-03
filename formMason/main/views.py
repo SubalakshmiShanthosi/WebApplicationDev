@@ -3,6 +3,7 @@ from django import forms
 from django.shortcuts import render
 from django.views.generic import FormView
 from django.views.generic import ListView
+#from main.views import FormResponsesListView
 from main.models import FormSchema
 
 # Create your views here.
@@ -40,3 +41,21 @@ class CustomFormView(FormView):
             return forms.IntegerField
         else:
             return None
+
+class FormResponsesListView(ListView):
+     template_name = "form_responses.html"
+
+     def get_context_data(self, **kwargs):
+         ctx = super(FormResponsesListView, self).get_context_data(**kwargs)
+         ctx["form"] = self.get_form()
+         return ctx
+
+     def get_queryset(self):
+         form = self.get_form()
+         return FormResponse.objects.filter(form=form)
+
+     def get_form(self):
+         return FormSchema.objects.get(pk=self.kwargs["form_pk"])
+
+     def get_success_url(self):
+            return reverse('responses', kwargs={'responses': self.object.responses})
