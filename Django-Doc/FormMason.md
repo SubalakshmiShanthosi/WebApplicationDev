@@ -320,4 +320,56 @@ class FormResponse(models.Model):
     form=models.ForeignKey(FormSchema,on_delete=models.PROTECT)
     response=JSONField()
 
+def is_form_valid(self,form):
+    custom_form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
+    user_response = form.cleaned_data
+    form_response = FormResponse(form=custom_form,response=user_response)
+    form_response.save()
+    return HttpResponseRedirect(reverse('home'))
+
+
+```
+
+
+
+> python manage.py makemigrations main
+
+> python manage.py migrate
+
+
+# Changes in CustomFormView to save responses
+
+```python
+form_structure=FormSchema.oobjects.get(pk=1).schema
+
+
+```
+
+
+# Importing table view of responses
+
+
+Changes in form_responses html page
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<h1>Responses for {{ form.title }}</h1>
+{% if object_list %}
+  <table border="1px">
+      <tr>
+        {% for field_name in headers %}
+        <th>{{ field_name }}</th>
+        {% endfor %}
+      </tr>
+{% for response in object_list %}
+      <tr>
+        {% for field_value in response %}
+        <td>{{ field_value }}</td>
+        {% endfor %}
+      </tr>
+{% endfor %}
+  </table>
+{% endif %}
+{% endblock %}
 ```

@@ -52,15 +52,20 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
              CustomFormDetails
              EditFormLayout
 
-# 16-04-2019 - Creating the rendering pages
+# 16-04-2019 - Creating the rendering pages --- DONE
 
-# 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON - DONE 
-
-
-# TODO - 26-04-2019 - Enhancing the view of forms.
+# 26-04-2019 - Creating basic form and its validation. Custom Form creation from JSON - DONE
 
 
-# Write a python code how to populate table with objects - Refer tango with django 
+# TODO - 26-04-2019 - Enhancing the view of forms - PARTIALLY DONE
+
+# 03-05-2019 : Showing json view of included data DONE
+
+# TODO 03.05.2019 : Include the table view of collected data
+        -- Do changes in form_responses.html template
+
+
+# Write a python code how to populate table with objects - Refer tango with django - 03.05.2019
 
 # TODO : Customisation
 
