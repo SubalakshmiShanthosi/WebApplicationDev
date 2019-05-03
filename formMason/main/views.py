@@ -3,6 +3,10 @@ from django import forms
 from django.shortcuts import render
 from django.views.generic import FormView
 from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse
+from main.models import FormResponse
 #from main.views import FormResponsesListView
 from main.models import FormSchema
 
@@ -11,10 +15,19 @@ from main.models import FormSchema
 class HomePageView(ListView):
     model=FormSchema
     template_name="home.html"
+    success_url = reverse_lazy('home')
 
 
 class CustomFormView(FormView):
     template_name="custom_form.html"
+    #success_url = reverse_lazy('custom_form')
+
+    def form_valid(self, form):
+        custom_form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
+        user_response = form.cleaned_data
+        form_response = FormResponse(form=custom_form, response=user_response)
+        form_response.save()
+        return HttpResponseRedirect(reverse('home'))
 
     def get_form(self):
 
@@ -44,6 +57,7 @@ class CustomFormView(FormView):
 
 class FormResponsesListView(ListView):
      template_name = "form_responses.html"
+     success_url = reverse_lazy('form_responses')
 
      def get_context_data(self, **kwargs):
          ctx = super(FormResponsesListView, self).get_context_data(**kwargs)
@@ -56,6 +70,3 @@ class FormResponsesListView(ListView):
 
      def get_form(self):
          return FormSchema.objects.get(pk=self.kwargs["form_pk"])
-
-     def get_success_url(self):
-            return reverse('responses', kwargs={'responses': self.object.responses})

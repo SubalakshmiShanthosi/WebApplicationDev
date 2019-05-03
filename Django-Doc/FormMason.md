@@ -273,15 +273,40 @@ Solution : Change in url
 
 
 ```python
+app_name = 'main'
+
 urlpatterns = [
     url(r'^$', HomePageView.as_view() , name='home' ),
-    url(r'^form/(?P<form_pk>\d+)/$', CustomFormView.as_view(),
-name='custom-form'),
-    path(r'^admin/$', admin.site.urls),
-    #path('main/', include('main.urls', namespace="main")),
+    url(r'^form/(?P<form_pk>\d+)/$', CustomFormView.as_view(),name='custom-form'),
+    url(r'^form/(?P<form_pk>\d+)/responses/$', FormResponsesListView.as_view(), name='form-responses'),
 ]
-   #Change with P as form_pk
+
+# File urls.py in main directory (application directory)
+
 ```
+
+```python
+urlpatterns = [
+
+    path(r'^admin/$', admin.site.urls),
+    url(r'^main/', include('main.urls')),
+    ]
+# Changes in the urls.py to include the changes in urls of application directory
+```
+
+
+```python
+
+# Changes in settings.py
+
+ROOT_URLCONF="main.urls"
+
+```
+# Including successfull compilation screenshots:
+
+![form Response](FormResponses.png)
+
+![Form Submission success](postFormSuccess.png)
 
 
 
