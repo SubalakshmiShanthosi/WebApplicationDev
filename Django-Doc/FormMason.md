@@ -392,3 +392,10 @@ Changes in views.py :
                9. Set the object_list as responses_list
 
 ![Improved List](improvedView.png)
+
+# Django General
+
+1. Active port in use:
+
+
+![Killing running port](killingActivePort.png)
