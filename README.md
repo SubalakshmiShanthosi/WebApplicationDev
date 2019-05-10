@@ -65,9 +65,10 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
         -- Do changes in form_responses.html template
 
 
-# Write a python code how to populate table with objects - Refer tango with django - 03.05.2019
+# Write a python code how to populate table with objects - Refer tango with django - 10.05.2019
 
 # TODO : Customisation
 
 1. Custom Validation of Form
 2. Form with a nice UI for pick list a option from limited dropdown fields
+3. Django tests to validate all cases (functional and non functional)
