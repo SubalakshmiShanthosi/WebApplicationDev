@@ -69,6 +69,6 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 
 # TODO : Customisation
 
-1. Custom Validation of Form
-2. Form with a nice UI for pick list a option from limited dropdown fields
-3. Django tests to validate all cases (functional and non functional)
+1. Custom Validation of Form.
+2. Form with a nice UI for pick list a option from limited dropdown fields.
+3. Django tests to validate all cases (functional and non functional).
