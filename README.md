@@ -68,7 +68,7 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 # Write a python code how to populate table with objects - Refer tango with django - 10.05.2019
 
 
-# TODO - 10.05.2019 : Improved responses List
+# TODO - 10.05.2019 : Improved responses List : DONE
 
 
 # TODO : Customisation

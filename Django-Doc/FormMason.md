@@ -349,7 +349,10 @@ form_structure=FormSchema.oobjects.get(pk=1).schema
 # Importing table view of responses
 
 
-Changes in form_responses html page
+Changes in form_responses html page -
+
+        Iterate through the field objects in Handlebar to view as rows in table - object_list - in which the entries are field_value within response attr  of object_list
+
 
 ```html
 {% extends "base.html" %}
@@ -373,3 +376,19 @@ Changes in form_responses html page
 {% endif %}
 {% endblock %}
 ```
+
+Changes in views.py :
+
+        Changes in method - get_context_data
+
+               1. getting get_context_data of super FormResponsesListView.
+               2. Getting form from self.
+               3. Get form Fields as keys()
+               4. Set the form_fields in headers attribute of context.
+               5. Set form in headers attribute of context.
+               6. Iterate through responses
+               7. To append response_data[field_name]
+               8. Add response_data to responses_list
+               9. Set the object_list as responses_list
+
+![Improved List](improvedView.png)
