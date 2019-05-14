@@ -399,3 +399,15 @@ Changes in views.py :
 
 
 ![Killing running port](killingActivePort.png)
+
+# TODO : Creating dynamic forms with schema in json format
+
+# Designing a form creation interface
+
+1. Enhanced User Experience -
+
+             Drag and drop Fields
+
+             Setting properties of fields by just clicking
+
+             
