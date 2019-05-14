@@ -78,3 +78,9 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 2. Form with a nice UI for pick list a option from limited dropdown fields.
 3. Django tests to validate all cases (functional and non functional).
 4. User management - admin page of django for user addition and deletion.
+
+# TODO - 14/05/2019 : Form creation Interface with json schema for fields :
+
+     1. Registration Number
+     2. Name
+     3. Marks
