@@ -1,21 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Create/Edit Form</h1>
 {% if form_pk %}
- <h1>Edit Form</h1>
+<li>
+<form action="{% url 'edit-form' form_pk=form_pk%}" method="post">{% csrf_token %}
+</li>
 {% else %}
- <h1>Create Form</h1>
-{% endif %}
-{% if form_pk %}
-<form action="{% url 'edit-form' form_pk=form_pk%}" method="post">{%
-csrf_token %}
-{% else %}
+<li>
 <form action="{% url 'create-form' %}" method="post">{% csrf_token %}
 {% endif %}
- {{ form.as_p }}
- {% if form_pk %}
- <input type="submit" value="Save Form" />
- {% else %}
- <input type="submit" value="Create Form" />
- {% endif %}
+</li>
+{{ form.as_p }}
+<li>
+<input type="submit" value="Create Form" />
+</li>
 </form>
 {% endblock %}

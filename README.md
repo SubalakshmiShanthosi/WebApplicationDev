@@ -89,4 +89,4 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 
 # TODO - populatedb scripting
 
-# TODO - tests
+# TODO - tests in Django

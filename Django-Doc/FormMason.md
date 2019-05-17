@@ -410,4 +410,37 @@ Changes in views.py :
 
              Setting properties of fields by just clicking
 
-             
+# Designing a form creation interface
+
+1. Changes in __forms.py__
+
+              1. NewDynamicFormForm - class with following member variables and methods:
+                       1.1 form_pk : CharField - required : False, HiddenInput
+                       1.2 title : CharField - required : True,Normal Input
+                       1.3 schema : CharField - required : True,Normal Input
+                       1.4 Method clean_schema : To trying loading json schema and returning schema
+
+2. Changes in __views.py__
+
+              1. CreateEditFormView - class with following methods and instance variables
+
+                     1.1 form_class- NewDynamicFormForm
+                     1.2 template_name- create_edit_form.html
+                     1.3 get_initial - get_initial Schema if FormSchema object exists else use new schema with title,form_pk and schema in JSON format , returns initial schema which was formed.
+                     1.4  get_context_data - same purpose to use inherited reference to CreateEditFormView
+                     1.5 form_valid =
+
+                             * Get form cleaned_data
+                             * Check if Any object already found
+                             * Get Schema old with corresponding pk
+                             * Set title
+                             * Set Schema
+                             * Save form schema
+
+                            Flow Alternative
+                             * New Form Flow  - Create new FormSchema
+                             * Save Schema
+                             * Return to home.html
+
+ 3. Changes in __create_edit_form.html__ :
+          

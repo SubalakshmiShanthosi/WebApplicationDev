@@ -9,14 +9,16 @@ from django.urls import reverse
 from main.models import FormResponse
 from main.models import FormSchema
 from django.views.generic import TemplateView
+import json
+from main.forms import NewDynamicFormForm
+from django.db.models import F
 # Working with Dynamic forms
 def get_context_data(self, **kwargs):
  ctx = super(CustomFormView, self).get_context_data(**kwargs)
  form_schema = FormSchema.objects.get(pk=self.kwargs["form_pk"])
  ctx["form_schema"] = form_schema
  return ctx
-import json
-from main.forms import NewDynamicFormForm
+
 # Create your views here.
 
 class HomePageView(ListView):
@@ -73,7 +75,7 @@ class CustomFormView(FormView):
 
 class FormResponsesListView(ListView):
      template_name = "form_responses.html"
-     success_url = reverse_lazy('form_responses')
+
 
      def get_context_data(self, **kwargs):
          ctx = super(FormResponsesListView, self).get_context_data(**kwargs)
@@ -93,8 +95,8 @@ class FormResponsesListView(ListView):
                  else:
                      response_values.append('')
 
-             if(any(response_values)):
-                  responses_list.append(response_values)
+            # if(any(response_values)):
+                  #responses_list.append(response_values)
 
              responses_list.append(response_values)
 
@@ -104,34 +106,43 @@ class FormResponsesListView(ListView):
 
      def get_queryset(self):
          form = self.get_form()
-         return FormResponse.objects.filter(form=form)
+         """
+         items,item_ids =[],[]
+         for items in FormResponse.objects.filter(form=form):
+             if items.form not in item_ids:
+                 items.append(item)
+                 item_ids.append(item.form)
+         return items
+         """
+         return FormResponse.objects.filter(form=form)#.exclude(form=F('form'))
 
      def get_form(self):
          return FormSchema.objects.get(pk=self.kwargs["form_pk"])
 
-
 class CreateEditFormView(FormView):
-    form_class = NewDynamicFormForm
-    template_name = "create_edit_form.html"
-    def get_initial(self):
-        if "form_pk" in self.kwargs:
-            form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
-            initial = {
-            "form_pk": form.pk,
-            "title": form.title,
-            "schema": json.dumps(form.schema)
-            }
-        else:
-            initial = {}
-            return initial
+ form_class = NewDynamicFormForm
+ template_name = "create_edit_form.html"
 
-    def get_context_data(self, **kwargs):
-        ctx = super(CreateEditFormView, self).get_context_data(**kwargs)
-        if "form_pk" in self.kwargs:
-            ctx["form_pk"] = self.kwargs["form_pk"]
-        return ctx
+ def get_initial(self):
+    if "form_pk" in self.kwargs:
+        form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
+        initial = {
+        "form_pk": form.pk,
+        "title": form.title,
+        "schema": json.dumps(form.schema)
+        }
+    else:
+        initial = {}
 
-    def form_valid(self, form):
+    return initial
+
+ def get_context_data(self, **kwargs):
+     ctx = super(CreateEditFormView, self).get_context_data(**kwargs)
+     if "form_pk" in self.kwargs:
+         ctx["form_pk"] = self.kwargs["form_pk"]
+     return ctx
+
+ def form_valid(self, form):
          cleaned_data = form.cleaned_data
          if cleaned_data.get("form_pk"):
              old_form = FormSchema.objects.get(pk=cleaned_data["form_pk"])
