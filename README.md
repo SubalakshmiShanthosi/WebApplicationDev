@@ -84,3 +84,9 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
      1. Registration Number
      2. Name
      3. Marks
+
+# TODO on form creation with JSON schema DONE - 17.05.2019
+
+# TODO - populatedb scripting
+
+# TODO - tests
