@@ -90,3 +90,7 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 # TODO - populatedb scripting
 
 # TODO - tests in Django
+
+# TODO experiment usage of Django tables
+
+Refer : https://github.com/shymonk/django-datatable
