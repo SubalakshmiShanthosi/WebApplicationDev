@@ -94,3 +94,6 @@ https://my.vertabelo.com/public-model-view/K804kzpWLRtKmZgswPoVYFLJHlzpAXwgi95ud
 # TODO experiment usage of Django tables
 
 Refer : https://github.com/shymonk/django-datatable
+
+
+# TODO : 24.05.2019 - Django customisation - Dropdown pick list option in forms
