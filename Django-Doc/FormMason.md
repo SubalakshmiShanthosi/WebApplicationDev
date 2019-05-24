@@ -443,4 +443,27 @@ Changes in views.py :
                              * Return to home.html
 
  3. Changes in __create_edit_form.html__ :
-          
+
+
+
+
+
+
+
+ # Learning to use Django Bootstrap
+
+```python
+ pip install django-crispy-forms
+```
+
+Adding to settings.py :
+
+```python
+INSTALLED_APPS = [
+    ...
+
+    'crispy_forms',
+]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+```

@@ -97,3 +97,5 @@ Refer : https://github.com/shymonk/django-datatable
 
 
 # TODO : 24.05.2019 - Django customisation - Dropdown pick list option in forms
+
+# Using django bootstrap
