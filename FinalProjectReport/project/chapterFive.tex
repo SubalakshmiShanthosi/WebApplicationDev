@@ -1,0 +1,189 @@
+\chapter{Forms in Django}
+\section{Introduction}
+\paragraph{} Django provides a rich framework to facilitate the creation of forms and the manipulation of form data.
+\begin{itemize}
+	\item \textbf{The basics:} 
+	\begin{itemize}
+		\item Overview 
+		\item Form API 
+		\item Built-in fields 
+		\item Built-in widgets
+	\end{itemize}
+   \item \textbf{Advanced:}
+   \begin{itemize}
+   	\item Forms for models 
+   	\item Integrating media  
+   	\item Formsets 
+   	\item Customizing validation
+   \end{itemize}
+\end{itemize}
+\subsection{Django's role in forms}
+Django handles three distinct parts of the work involved in forms:\\
+\begin{itemize}
+	\item Preparing and Restructuring data to make it ready for rendering.
+	\item Creating HTML forms for the data.
+	\item Receiving and Processing submitted forms and data from the client.
+\end{itemize}
+\subsection{Forms in Django}
+\subsubsection{ The Django \textbf{Form} class:}
+Django Model describes the logical \textbf{structure} of an object, it's \textbf{behavior}, and the way its parts are represented to us, a Form class describes a form and determines how it works and appears.\\
+
+In a similar way that a model class's fields map to database fields, a form class's fields map to HTML form <input> elements. (A \textbf{ModelForm} maps a model class's fields to HTML form <input> elements via a Form; this is what the Django admin is based upon.)\\
+
+A form's fields are themselves classes; they manage form data and perform validation when a form is submitted. A DateField and a FileField handle very different kinds of data and have to do different things with it.\\
+
+A form field is represented to a user in the browser as an HTML "\textbf{widget}" - a piece of user interface machinery. Each field type has an appropriate default Widget class, but these can be overridden as required.
+
+\subsubsection{Instantiating, processing, and rendering forms}
+While \textbf{rendering} a form:
+\begin{itemize}
+	\item Get hold of it in the view (fetch it from the database, for example).
+	\item Pass it to the template context.
+	\item Expand it to HTML markup using template variables.	
+\end{itemize}
+When we \textbf{instantiate} a form, we can opt to leave it empty or pre-populate it, for example with:
+\begin{itemize}
+	\item Data from a saved model instance (as in the case of admin forms for editing).
+	\item Data that we have collated from other sources.
+	\item Data received from a previous HTML form submission.	
+\end{itemize}
+\newpage
+\section{Form Field Types}
+\paragraph{}Each model field has a corresponding default form field. For example, a CharField on a model is represented as a CharField on a form. A model ManyToManyField is represented as a MultipleChoiceField.
+
+\begin{table}[]
+	\begin{tabular}{|l|l|ll}
+		\cline{1-2}
+		\textbf{Model Field} & \textbf{Form Field}       &  &  \\ \cline{1-2}
+		AutoField            & Not represented in form   &  &  \\ \cline{1-2}
+		BigAutoField         & Not represented in form   &  &  \\ \cline{1-2}
+		BigIntegerField      & IntegerField              &  &  \\ \cline{1-2}
+		BinaryField          & CharField - True or false &  &  \\ \cline{1-2}
+		BooleanField         & BooleanField              &  &  \\ \cline{1-2}
+		CharField            & CharField                 &  &  \\ \cline{1-2}
+		DateField            & DateField                 &  &  \\ \cline{1-2}
+		ForeignKey           & ModelChoiceField          &  &  \\ \cline{1-2}
+		ManyToManyField      & ModelMultipleChoiceField  &  &  \\ \cline{1-2}
+		TextField            & CharField                 &  &  \\ \cline{1-2}
+	\end{tabular}
+\caption{Conversion of Model to Form Fields }
+\label{tab:my-table}
+\end{table}
+\subsection{Accessing the fields from the form}
+Using command \textbf{Form.fields}
+\begin{lstlisting}[language=python,numbers=none]
+>>> f.as_table().split('\n')[0]
+'<tr><th>Name:</th><td><input name="name" type="text" value="instance" required></td></tr>'
+>>> f.fields['name'].label = "Username"
+>>> f.as_table().split('\n')[0]
+'<tr><th>Username:</th><td><input name="name" type="text" value="instance" required></td></tr>
+\end{lstlisting}
+
+\subsection{Outputting forms as HTML}
+The second task of a Form object is to render itself as HTML. To do so, simply print it:
+\begin{itemize}
+	\item \textbf{Form.as\_p()}:\\
+	as\_p() renders the form as a series of \textbf{<p>} tags, with each <p> containing one field.
+	\item \textbf{Form.as\_ul()}: Similarly,Render with series of \textbf{<ul>} tags.
+	\item \textbf{Form.as\_table()}:Renders as HTML table.
+\end{itemize}
+\newpage
+\section{Forms in FormMason}
+Form with inplace vaildation based on the field type and additional parameters such as max-length,min-length,required etc. specified on Form Fieldtype constructor.\\
+\begin{lstlisting}[language=python,numbers=none]
+# Form class which inherits django forms. Consists of four fields Name,Age,Address and Gender
+from django import forms
+class SampleForm(forms.Form):
+	name = forms.CharField()
+	age = forms.IntegerField()
+	address = forms.CharField(required=False)
+	gender = forms.ChoiceField(choices=(('M', 'Male'),('F','Female')))
+\end{lstlisting}
+\subsubsection{Use of Ordered Dict Type in Django}
+Unlike the traditional Dictonary - the fields of Form are of type Ordered Dictionary.\\
+This is to \textbf{preserve} the order of insertion of field while writing forms.py.
+
+\subsection{Customised Form}
+New Dynamic Form(NewDynamicFormForm class) with the following fields as class members:
+\begin{enumerate}
+\item \textbf{form\_pk} : CharField - required : False, HiddenInput.
+\item \textbf{title} : CharField - required : True, Normal Input.
+\item \textbf{schema} : CharField - required : True, Normal Input.
+\item Method \textbf{clean\_schema} : To trying loading json schema and returning schema.
+\end{enumerate}
+\newpage
+\begin{lstlisting}[language=python,numbers=none]
+ import json
+ from django import forms
+ from django.db.models.functions import Lower,Upper
+ 
+ # Form fields - JSON data and title.
+ class NewDynamicFormForm(forms.Form):
+ 	form_pk=forms.CharField(widget=forms.HiddenInput(),required=False)
+ 	title = forms.CharField()
+ 	schema = forms.CharField(widget=forms.Textarea()) 
+ # Method to load the JSON schema
+ def clean_schema(self):
+ 	schema = self.cleaned_data["schema"]
+ 	schema = json.loads(schema)
+ 	return schema
+\end{lstlisting}
+$\bullet${Alteration in views and template}
+\begin{lstlisting}[language=python,numbers=none]
+#Create Edit Form View to load data from JSON into created model
+class CreateEditFormView(FormView):
+	form_class = NewDynamicFormForm
+	template_name = "create_edit_form.html"
+	def get_initial(self):
+		if "form_pk" in self.kwargs:
+			form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
+			initial = {
+				"form_pk": form.pk,
+				"title": form.title,
+				"schema": json.dumps(form.schema)
+			}
+		else:
+			initial = {}  # Ensure backward compactibility of old form layout
+	return initial
+# Get context data - Form context
+def get_context_data(self, **kwargs):
+	ctx = super(CreateEditFormView, self).get_context_data(**kwargs)
+	if "form_pk" in self.kwargs:
+		ctx["form_pk"] = self.kwargs["form_pk"]
+	return ctx
+# Save old or new form fields.
+def form_valid(self, form):
+	cleaned_data = form.cleaned_data
+	if cleaned_data.get("form_pk"):
+		old_form = FormSchema.objects.get(pk=cleaned_data["form_pk"])
+		old_form.title = cleaned_data["title"]
+		old_form.schema = cleaned_data["schema"]
+		old_form.save()
+	else:
+		new_form = FormSchema(title=cleaned_data["title"],schema=cleaned_data["schema"])
+		new_form.save()
+		return HttpResponseRedirect(reverse("home"))
+\end{lstlisting}
+\begin{lstlisting}[language=html,numbers=none]
+<!-- Changes to include link for edit form -- >
+<! -- create_edit_form.html-->
+{% extends "base.html" %}
+{% block content %}
+<h1>Create/Edit Form</h1>
+{% if form_pk %}
+<li>
+<form action="{% url 'edit-form' form_pk=form_pk%}" method="post">
+{% csrf_token %}
+</li>
+{% else %}
+<li>
+<form action="{% url 'create-form' %}" method="post">{% csrf_token %}
+{% endif %}
+</li>
+{{ form.as_p }}
+<li>
+<input type="submit" value="Create Form" />
+</li>
+</form>
+{% endblock %}
+\end{lstlisting}

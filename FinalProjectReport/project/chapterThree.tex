@@ -1,0 +1,33 @@
+\chapter{Introduction to Django}
+\section{Django Basics}
+\subsection{Introduction : Django}
+\paragraph{} Django (jang-goh) is a free and open source web application framework, written in Python.\\ A web framework is
+a set of components that helps you to develop websites faster and easier. \\ Every web designer aim at developing simple web components like User Management,Management panel for data filtering and viewing,forms etc.\\
+The framework emphasis on reuseability and pluggability of components with less code , low coupling and rapid development.\\
+The core Django Framework architecture can be seen as \textbf{MVC} architecture.\\
+It consists of : 
+\begin{itemize}
+ \item Object-Relational mapper (\textbf{ORM}) that mediates between data models (defined as Python classes) and models.
+ \item A relational database ("\textbf{Model}"). 
+ \item A system for processing HTTP requests with a web templating system ("\textbf{View}").
+ \item Regular-expression-based URL dispatcher ("\textbf{Controller}").
+\end{itemize}
+\newpage
+\subsection{Design philosophies of Django}
+$\bullet$ Overall:\\
+ Fundamental philosophies Djang's developers have used in creating the framework. Its goal is to explain the past and guide the future.
+ \begin{enumerate}
+ 	\item \textbf{Loose Coupling and Tight Cohesion:}\\The various layers of the framework shouldn't "know" about each other unless absolutely necessary.
+ 	
+ 	For example, the template system knows nothing about Web requests, the database layer knows nothing about data display and the view system doesn't care which template system a programmer uses.
+ 	
+ 	\item \textbf{Less Code:}
+ 	\\Django apps should use as little code as possible; they should lack boilerplate. Django should take full advantage of Python's dynamic capabilities, such as introspection.
+ 	\item \textbf{Quick development:}
+ 	\\ The point of a Web framework in the 21st century is to make the tedious aspects of Web development fast. Django should allow for incredibly quick Web development.
+ 	
+ 	\item \textbf{Don't repeat yourself (DRY):}\\Redundancy is bad,normalisation is good.
+ 	
+ 	\item \textbf{Consistency:}\\ The framework should be consistent at all levels. Consistency applies to everything from low-level (the Python coding style used) to high-level (the "experience" of using Django).
+ 	
+ \end{enumerate}

@@ -57,7 +57,7 @@ bookmarks,  colorlinks=false]{hyperref} %for creating links in the pdf version a
 %For the header and footer
 \usepackage{fancyhdr}
 \fancypagestyle{plain}{%
-\fancyfoot[L]{\emph{Department of Computer Engineering, SHORT NAME OF COLLEGE, Pune}} % except the center
+\fancyfoot[L]{\emph{Department of Computer Science and Engineering,SSNCE,Kalavakkam}} % except the center
 \fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -65,9 +65,9 @@ bookmarks,  colorlinks=false]{hyperref} %for creating links in the pdf version a
 
 \pagestyle{fancy}
 
-\rhead{\emph{NAME OF PROJECT}}
+\rhead{\emph{WORKING WITH DJANGO FORMS}}
 
-\fancyfoot[LO,LE]{\emph{Department of Computer Engineering, SHORT NAME OF COLLEGE, Pune}}
+\fancyfoot[LO,LE]{\emph{Department of Computer Science and Engineering,SSNCE,Kalavakkam}}
 \cfoot{}
 \fancyfoot[RO, RE]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -98,6 +98,30 @@ bookmarks,  colorlinks=false]{hyperref} %for creating links in the pdf version a
 }
 \pgfpagesuselayout{boxed}
 \setlength{\parindent}{1cm}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+%\usepackage{ragged2e}
+%\raggedright{\chead{\thepage\ of \pageref{LastPage}}}
+%%% Remove the next line if you want the figures at their place    
+\usepackage[figuresonly,nolists,nomarkers]{endfloat}
+\usepackage{lipsum}
+% Uncomment the following line for the final version
+%\nofiles\renewcommand{\processdelayedfloats}{}
+
+% Page numbering: top right
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancypagestyle{plain}{
+
+	\fancyhead[RO,RE]{\thepage\ of \pageref{LastPage}} %RO=right odd, RE=right even
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{empty}
+\pagenumbering{gobble}
+
 %GLOBAL SETTINGS OVER, DOCUMENT BEGINS
 \begin{document}
 \renewcommand\bibname{References}
@@ -143,17 +167,14 @@ bookmarks,  colorlinks=false]{hyperref} %for creating links in the pdf version a
 \newpage
 \pagenumbering{arabic} %reset numbering to normal for the main content
 
-\input{project/introduction.tex} % adds the introduction page
-\input{project/literature-survey.tex} % adds the Literature Survey page
-\input{project/srs.tex}
-\input{project/req-analysis.tex}
-\input{project/system-design.tex}
-\input{
-project/testing.tex}
-\input{project/planning.tex}
-\input{project/implementation.tex} % adds the Project Design
+\input{project/chapterOne.tex} % adds the introduction page
+\input{project/chapterTwo.tex}
+\input{project/chapterThree.tex}
+\input{project/chapterFour.tex}
+\input{project/chapterFive.tex}
+\input{project/implementation.tex}
 \input{project/screenshots.tex}
 \input{project/conclusion.tex} % adds the Scheduling and Planning page
-\input{project/ref.tex} % adds the References page
+\input{project/reference.tex} % adds the References page
 
 \end{document}

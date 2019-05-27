@@ -1,0 +1,312 @@
+
+\lstset{ %
+	language=html,                % the language of the code
+	basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+	stepnumber=1,                   % each line is numbered
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+	showspaces=false,               % show spaces adding particular underscores
+	showstringspaces=false,         % underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	frame=single,                   % adds a frame around the code
+	rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+	tabsize=2,                      % sets default tabsize to 2 spaces
+	captionpos=b,                   % sets the caption-position to bottom
+	breaklines=true,                % sets automatic line breaking
+	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	title=\lstname,                   % show the filename of files included with \lstinputlisting;
+	% also try caption instead of title
+	keywordstyle=\color{blue},          % keyword style
+	commentstyle=\color{dkgreen},       % comment style
+	stringstyle=\color{mauve},         % string literal style
+	escapeinside={\%*}{*)},            % if you want to add a comment within your code
+	morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\lstdefinestyle{base}{
+	language=html,
+	breaklines=true,
+	basicstyle=\ttfamily\color{blue},
+	moredelim=**[is][\color{red}]{@}{@},
+}
+
+\chapter{Introduction to HTML and CSS}
+\section{HTML : Hyper Text Markup Language}
+\subsection{Introduction to HTML}
+\paragraph{} HTML is a \textbf{markup language} which tells how the computer should render a web page.\\ The documents themselves are plain text files with special "tags" or codes that a web browser uses to interpret and display
+information on your computer screen. \\
+\begin{itemize}
+	\item Introduction
+\begin{enumerate}
+	\item An HTML file is a text file containing small markup tags.
+	\item The markup tags tell the Web browser how to display the page.
+	\item An HTML file must have an \textbf{htm} or \textbf{html} file extension. 
+\end{enumerate}
+    \item HTML Tags 
+    \begin{enumerate}
+    	\item HTML Tags are used to markup HTML elements.
+    	\item HTML Tags are surrounded by < and > braces.
+    	\item HTML Tags are either:
+    	\begin{itemize}
+    		\item Paired tags : Tags with opening and closing tags.
+    		\item Closed tags : Tags without closing tag.
+    	\end{itemize}
+    \end{enumerate}
+\newpage
+
+\begin{table}[]
+	\begin{tabular}{|l|l|l|ll}
+		\cline{1-3}
+		\textbf{Tag}   & \textbf{Description}           & \textbf{Example}                                                                                                                                                               &  &  \\ \cline{1-3}
+		h1, . . . , h6 & Header tag                     & h1 to h6                                                                                                                                                                       &  &  \\ \cline{1-3}
+		p              & paragraph element              & \textless{}p\textgreater{}Hi ...\textless{}/p\textgreater{}                                                                                                                    &  &  \\ \cline{1-3}
+		span           & No line change after span      & \textless{}span\textgreater{}Hi...\textless{}/span\textgreater Bye.                                                                                                            &  &  \\ \cline{1-3}
+		div            & Make division between contents & \textless{}div\textgreater content \textless{}/div\textgreater{}                                                                                                               &  &  \\ \cline{1-3}
+		a              & Hyperlink in documents         & \textless{}a href ="\textless{}url\textgreater{}"\textgreater{}description\textless{}/a\textgreater{}                                                                          &  &  \\ \cline{1-3}
+		center         & Move content to center         & \textless{}center\textgreater{}Centered  content \textless{}/center\textgreater{}                                                                                              &  &  \\ \cline{1-3}
+		br             & Line break                     & \textless{}br\textgreater or \textless{}br/\textgreater{}                                                                                                                      &  &  \\ \cline{1-3}
+		hr             & Horizontal line                & \textless{}hr\textgreater or \textless{}hr/\textgreater{}                                                                                                                      &  &  \\ \cline{1-3}
+		pre            & Preserve formatting            & \textless{}pre\textgreater{}Preserved content\textless{}/pre\textgreater{}                                                                                                     &  &  \\ \cline{1-3}
+		table          & Include a table                & \textless{}table\textgreater \textless{}tr\textgreater \textless{}td\textgreater{}TR One\textless{}/td\textgreater{}\textless{}/tr\textgreater \textless{}/table\textgreater{} &  &  \\ \cline{1-3}
+	\end{tabular}
+      \caption{HTML basic tags } \label{tab:sometab}
+    
+\end{table}
+\item \textbf{HTML 5} \\
+HTML 5 is backward compactible \\
+\textbf{Features in HTML 5}:
+\begin{enumerate}
+	\item \textbf{New semantic elements} to allow us to define more parts of our markup unambiguously and
+	semantically rather than using lots of classes and IDs. 
+	
+	\item \textbf{New elements and APIs} for adding video, audio, scriptable graphics, and other rich application
+		type content to our sites.
+	\item New features for standardising functionality that we already built in bespoke, hacky ways.\textbf{ Server sent updates and form validation } spring to mind immediately. 
+	\item Customised handling of \textbf{markup errors}.
+	\item Support for \textbf{Offline web pages}.
+\end{enumerate}
+\item \textbf{HTML 5 Design principles}:
+\begin{enumerate}
+	\item Ensuring support for existing content: Process existing HTML documents as HTML5 documents. 
+	\item Degrading new features gracefully in older browsers:
+	HTML5 should degrade gracefully in old or less capable agents.
+	\item Not reinventing the wheel : "If it ain't broke, don't fix it."
+	\item Paving the cow paths: Work with already build path. Embrace and adopt the de facto standards in the official specs.
+	\item Evolution, not revolution: Evolve existing system than to replace it with another new standards.
+\end{enumerate} 
+\end{itemize}
+\newpage
+\subsection{Introduction to CSS}
+\paragraph{}CSS is used to enhance the look of the web page.\\
+Types of CSS styling:
+\begin{itemize}
+	\item Inline CSS : 
+	\\ Style are defined inline to the individual tags:
+\begin{lstlisting}[language=html]
+<!-- css.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Tutorial</title>
+</head>
+
+<body>
+
+<h3 style="color:blue"> Heading 1 </h3>
+<h3 style="color:red"> Heading 3 </h3>
+
+</body>
+
+</html>
+\end{lstlisting}
+\item Embedded CSS:
+ Styles are specified within the <style> tag in HTML document.\\
+ \begin{lstlisting}[language=html]
+ <!-- cssEmbedded.html -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>CSS Tutorial</title>
+ <style type="text/css">
+ h3.h3_blue{ /*change color to blue*/
+ color: blue;
+ }
+ 
+ h3.h3_red{ /*change color to red*/
+ color:red;
+ }
+ </style>
+ </head>
+ <body>
+ <h3 class='h3_blue'> Heading 1 </h3>
+ <h3 class='h3_blue'> Heading 3 </h3>
+ <h3 class='h3_red'> Heading 1 </h3>
+ </body>
+ </html>
+ \end{lstlisting}
+ \item External CSS: Style document in css extension is written separately which are imported into the HTML document.
+ 
+ \begin{lstlisting}[language=html,numbers=none,style=base]
+ /* asset/css/my_css.css */
+ h3.h3_blue{
+ color: blue;
+ }
+ 
+ h3.h3_red{
+ color:red;
+ }
+ \end{lstlisting}
+ 
+ \begin{lstlisting}[language=html,numbers=none,style=base]
+ <!-- CSS External -->
+ <head>
+ <title>CSS External file inclusion</title>
+ <link rel="stylesheet" type="text/css" href="asset/css/my_css.css">
+ </head>
+ \end{lstlisting}
+
+\end{itemize}
+\begin{itemize}
+	\item Basic CSS Selectors \\
+	Three types of  selectors in CSS :  
+	\begin{enumerate}
+		\item \textbf{Element:}Can be selected using it's name e.g. 'p', 'div' and 'h1' etc.
+		\item \textbf{Class:} Can be selected using '.className' operator e.g. '.h3\_blue'.
+		\item \textbf{ID:}Can be selected using \#idName e.g. '\#my\_para'.
+	\end{enumerate}
+\begin{lstlisting}[language=html,style=base,numbers=none]
+/* asset/css/my_css.css */
+/*element selection*/
+h3 {
+color: blue;
+}
+/*class selection*/
+.c_head{
+font-family: cursive;
+color: orange;
+}
+
+/*id selection*/
+#i_head{
+font-variant: small-caps;
+color: red;
+}
+\end{lstlisting}
+\begin{lstlisting}[language=html]
+<!-- css.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Selectors</title>
+<link rel="stylesheet" type="text/css" href="asset/css/my_css.css">
+</head>
+<body>
+<h3>CSS Selectors</h3>
+<p class='c_head'> Paragraph with class 'c_head' </p>
+<p id='i_head'> Paragraph with id 'i_head' </p>
+</body>
+</html>
+\end{lstlisting}
+	\item Hierarchy:
+	Hierarchy of the styling operations.\\
+	$\bullet$ Priority level: 
+	\begin{enumerate}
+		\item ID(highest priority).
+		\item Class selector.
+		\item Element selector.
+	\end{enumerate}
+    $\bullet$ If two CSS has \textbf{same priority}, then CSS rule at the \textbf{last} will be applicable.
+	\newpage
+	
+	\begin{table}[]
+		\begin{tabular}{|l|l|ll}
+			\cline{1-2}
+			\textbf{Selectors}       & \textbf{Description}                                      &  &  \\ \cline{1-2}
+			h1, p, span etc          & Element selector                                          &  &  \\ \cline{1-2}
+			.className               & Class selector                                            &  &  \\ \cline{1-2}
+			\#idName                 & ID selector                                               &  &  \\ \cline{1-2}
+			*                        & Universal selector                                        &  &  \\ \cline{1-2}
+			h1.className             & Selects heading one with class as Class Name              &  &  \\ \cline{1-2}
+			h1\#className            & Select h1 with id ‘idName’                                &  &  \\ \cline{1-2}
+			p span                   & descendant selector (select span which is inside p)       &  &  \\ \cline{1-2}
+			p \textgreater span      & child selector (‘span’ which is direct descendant of ‘p’) &  &  \\ \cline{1-2}
+			h1,h2,p                  & group selection (select h1, h2 and p)                     &  &  \\ \cline{1-2}
+			span{[}my\_id=m\_span{]} & select ‘span’ with attribute ‘my\_id=m\_span’             &  &  \\ \cline{1-2}
+		\end{tabular}
+	\caption{ List of CSS selectors} \label{tab:sometab}
+	\end{table}
+	\item \textbf{CSS3} \\
+	CSS3 aims at extending CSS2.1 \\
+	\textbf{Features in CSS3}:
+	\begin{enumerate}
+		\item  Rounded corners.
+		\item  Shadows.
+		\item  Gradients.
+		\item  Transitions or animations.
+		\item  Layouts - multi-columns.
+		\item  Flexible box or grid layouts.
+	\end{enumerate}
+	\item \textbf{CSS3 overview}:
+	\begin{enumerate}
+	
+		\item Borders:
+			\begin{itemize}
+				\item border-color
+				\item border-image
+				\item border-radius
+				\item box-shadow		
+			\end{itemize}
+		
+		\item Backgrounds:
+		\begin{itemize}
+			\item background-origin and background-clip
+			\item background-size
+			\item multiple backgrounds		
+		\end{itemize}
+	\newpage 	
+	 	\item Colours:
+	 	\begin{itemize}
+	 		\item HSL colors
+	 		\item HSLA colors
+	 		\item opacity
+	 		\item RGBA colors	
+	 	\end{itemize}
+	 	
+	 	\item Text Effects:
+	 	\begin{itemize}
+	 		\item text-shadow
+	 		\item text-overflow
+	 		\item word-wrap	
+	 	\end{itemize}
+ 	    \item User Interface :
+ 	    \begin{itemize}
+ 	    	\item box-sizing
+ 	    	\item resize
+ 	    	\item outline
+ 	    	\item nav-top, nav-right, nav-bottom, nav-left
+ 	    \end{itemize}
+       \item Basic box model :
+       \begin{itemize}
+           \item overflow-x
+           \item overflow-y
+       \end{itemize}
+	\end{enumerate} 
+\item \textbf{CSS3 over CSS}:
+\begin{enumerate}
+	\item \textbf{Compatibility}:
+	CSS1 is not compatible with CSS3. CSS3 is backward compatibile with CSS1.
+	\item \textbf{Rounded corners and gradients}:
+	Earlier versions of CSS required separate code to position and shape the figures or images.\\ In CSS3 
+	\begin{lstlisting}[language=html,numbers=none,style=base]
+	  /* Round Border */
+      .roundBorder{border-radius:10px;}"
+      /* Gradient */   
+      .gradBG{background:liner-gradient(white,black);}
+	\end{lstlisting}
+	\item \textbf{Animation and Text Effects:}
+	Animation in CSS using jQuery and jS scripts. No special text effects like shadow.CSS3 has text-shadow and break lines.CSS3 can also be used to add effects like hover can be set.
+\end{enumerate}
+\end{itemize}
