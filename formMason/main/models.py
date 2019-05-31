@@ -16,7 +16,7 @@ class FormSchema(models.Model):
     schema=JSONField()
 
 class FormResponse(models.Model):
-    form=models.ForeignKey(FormSchema,on_delete=models.PROTECT)
+    form=models.ForeignKey(FormSchema,on_delete=models.CASCADE)
     response=JSONField()
 
 

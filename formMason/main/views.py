@@ -39,21 +39,15 @@ class CustomFormView(FormView):
         return HttpResponseRedirect(reverse('home'))
 
     def get_form(self):
-
-        # Form structure is predefined with formSchemaIns.schema with the below given json and have done formSchemaIns.save() to load the DB schema
-        form_structure = FormSchema.objects.get(pk=1).schema
-        #form_structure_json="""{"name":"string","age":"number","city":"string","country":"string","time_lived_in_current_city":"string"}"""
-        #form_structure=json.loads(form_structure_json)
-        custom_form=forms.Form(**self.get_form_kwargs())
-        for key,value in form_structure.items():
-            field_class=self.get_field_class_from_type(value)
+        form_structure = FormSchema.objects.get(pk=self.kwargs["form_pk"]).schema
+        custom_form = forms.Form(**self.get_form_kwargs())
+        for key, value in form_structure.items():
+            field_class = self.get_field_class_from_type(value)
             if field_class is not None:
-                custom_form.fields[key]=field_class()
+                custom_form.fields[key] = field_class()
             else:
                 raise TypeError("Invalid field type {}".format(value))
-
         return custom_form
-
 
 
     def get_field_class_from_type(self,value_type):
