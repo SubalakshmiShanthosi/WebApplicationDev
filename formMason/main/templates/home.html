@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+<style type="text/css">
+a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
+}
+</style>
 <h1>Available Forms</h1>
 {% if object_list %}
 <ul>

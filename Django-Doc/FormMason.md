@@ -481,6 +481,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Populate db using django-admin loaddata
 
+./manage.py loaddata formNewEntries.json
 # Steps to take dump of all entries in Database
 
 

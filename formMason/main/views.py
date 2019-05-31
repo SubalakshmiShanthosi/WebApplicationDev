@@ -114,36 +114,41 @@ class FormResponsesListView(ListView):
          return FormSchema.objects.get(pk=self.kwargs["form_pk"])
 
 class CreateEditFormView(FormView):
- form_class = NewDynamicFormForm
- template_name = "create_edit_form.html"
+    form_class = NewDynamicFormForm
+    template_name = "create_edit_form.html"
 
- def get_initial(self):
-    if "form_pk" in self.kwargs:
-        form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
-        initial = {
-        "form_pk": form.pk,
-        "title": form.title,
-        "schema": json.dumps(form.schema)
-        }
-    else:
-        initial = {}
+    def get_initial(self):
+        if "form_pk" in self.kwargs:
+            form = FormSchema.objects.get(pk=self.kwargs["form_pk"])
+            initial = {
+                "form_pk": form.pk,
+                "title": form.title,
+                "schema": json.dumps(form.schema)
+            }
+        else:
+            initial = {}
 
-    return initial
+        return initial
 
- def get_context_data(self, **kwargs):
-     ctx = super(CreateEditFormView, self).get_context_data(**kwargs)
-     if "form_pk" in self.kwargs:
-         ctx["form_pk"] = self.kwargs["form_pk"]
-     return ctx
+    def get_context_data(self, **kwargs):
+        ctx = super(CreateEditFormView, self).get_context_data(**kwargs)
+        if "form_pk" in self.kwargs:
+            ctx["form_pk"] = self.kwargs["form_pk"]
 
- def form_valid(self, form):
-         cleaned_data = form.cleaned_data
-         if cleaned_data.get("form_pk"):
-             old_form = FormSchema.objects.get(pk=cleaned_data["form_pk"])
-             old_form.title = cleaned_data["title"]
-             old_form.schema = cleaned_data["schema"]
-             old_form.save()
-         else:
-             new_form = FormSchema(title=cleaned_data["title"],schema=cleaned_data["schema"])
-             new_form.save()
-             return HttpResponseRedirect(reverse("home"))
+        return ctx
+
+    def form_valid(self, form):
+        cleaned_data = form.cleaned_data
+
+        if cleaned_data.get("form_pk"):
+            old_form = FormSchema.objects.get(pk=cleaned_data["form_pk"])
+            old_form.title = cleaned_data["title"]
+            old_form.schema = cleaned_data["schema"]
+            old_form.save()
+            #console.log("Deleting entries in form")
+            #objects_old_form=FormSchema.objects.get(pk=cleaned_data["form_pk"]).delete()
+        else:
+            new_form = FormSchema(title=cleaned_data["title"], schema=cleaned_data["schema"])
+            new_form.save()
+
+        return HttpResponseRedirect(reverse("home"))
