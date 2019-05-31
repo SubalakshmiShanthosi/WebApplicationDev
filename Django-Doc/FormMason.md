@@ -91,6 +91,16 @@ Form JSON for democratic information gathering for a person :
 }
 ```
 
+```json
+{
+  "name":"string",
+  "regNo":"number",
+  "catOne":"number",
+  "catTwo":"number",
+  "catThree":"number"
+}
+```
+
 
 # Explanation of Handlebar and the functionality written in custom_form.html and views.py respectively
 
@@ -467,3 +477,11 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ```
+
+
+# Populate db using django-admin loaddata
+
+# Steps to take dump of all entries in Database
+
+
+> ./manage.py dumpdata main > formMason.json
