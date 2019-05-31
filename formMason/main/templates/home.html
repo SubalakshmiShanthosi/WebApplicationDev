@@ -6,20 +6,21 @@
 {% for form in object_list %}
 <li>
 <a href="{% url 'custom-form' form_pk=form.pk %}">
-  {{ form.title }}
+  Add entries to {{ form.title }}
 </a>
 <br/>
 </li>
+<br/>
 <li>
 <a href="{% url 'form-responses' form_pk=form.pk  %}">
-  See Responses
+  See Responses for {{ form.title }}
 </a>
 </li>
+<br/>
 <li>
-  <br/>
-  <a href="{% url 'edit-form' form_pk=form.pk %}">Edit Form
+  <a href="{% url 'edit-form' form_pk=form.pk %}">Edit Form schema for {{ form.title }}
   </a>
-</li>
+</li><br/>
 {% endfor %}
 </ul>
 {% endif %}
